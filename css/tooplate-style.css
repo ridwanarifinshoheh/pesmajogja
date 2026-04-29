@@ -202,15 +202,22 @@ http://www.tooplate.com/view/2106-soft-landing
     border-radius: 50%;
     border: 1px solid #575757;
     border-top-color: #ffffff;
+    -webkit-animation: spinner .9s linear infinite;
     animation: spinner .9s linear infinite;
   }
 
   @-webkit-keyframes spinner {
-    to {transform: rotate(360deg);}
+    to {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
   }
 
   @keyframes spinner {
-    to {transform: rotate(360deg);}
+    to {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
   }
 
 
