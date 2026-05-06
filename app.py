@@ -7,6 +7,9 @@ app = Flask(__name__)
 def home():
     return send_from_directory('.', 'index.html')
 
+if __name__ == "__main__":
+    app.run(debug=True)
+
 @app.route('/css/<path:filename>')
 def css_files(filename):
     return send_from_directory('css', filename)
