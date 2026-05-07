@@ -1,35 +1,83 @@
+// ================= DOM LOADED =================
+
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ================= SLIDER =================
+
+    const slides = document.querySelectorAll(".slide");
+
+    let currentSlide = 0;
+
+    function showSlide() {
+
+        slides.forEach((slide) => {
+            slide.classList.remove("active");
+        });
+
+        slides[currentSlide].classList.add("active");
+
+        currentSlide++;
+
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+    }
+
+    // tampil pertama
+    if (slides.length > 0) {
+
+        showSlide();
+
+        setInterval(showSlide, 4000);
+
+    }
+
+
+    // ================= MOBILE MENU =================
+
     const menuToggle = document.getElementById("menuToggle");
+
     const navMenu = document.getElementById("navMenu");
 
-    menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-    });
+    if (menuToggle && navMenu) {
+
+        menuToggle.addEventListener("click", () => {
+
+            navMenu.classList.toggle("active");
+
+        });
+
+    }
+
+
+    // ================= DARK MODE =================
 
     const themeToggle = document.getElementById("themeToggle");
 
-    themeToggle.add
+    if (localStorage.getItem("theme") === "light") {
 
-    ---
+        document.body.classList.add("light");
 
-# `static/js/script.js`
+    }
 
-```javascript
-document.addEventListener("DOMContentLoaded", () => {
+    if (themeToggle) {
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+        themeToggle.addEventListener("click", () => {
 
-    menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-    });
+            document.body.classList.toggle("light");
 
-    const themeToggle = document.getElementById("themeToggle");
+            if (document.body.classList.contains("light")) {
 
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-    });
+                localStorage.setItem("theme", "light");
+
+            } else {
+
+                localStorage.setItem("theme", "dark");
+
+            }
+
+        });
+
+    }
 
 });
-```
