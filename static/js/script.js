@@ -1,26 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const slides = document.querySelectorAll(".slide");
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
 
-    let index = 0;
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
 
-    function showSlide() {
+    const themeToggle = document.getElementById("themeToggle");
 
-        slides.forEach(slide => {
-            slide.classList.remove("active");
-        });
-
-        slides[index].classList.add("active");
-
-        index++;
-
-        if (index >= slides.length) {
-            index = 0;
-        }
-    }
-
-    showSlide();
-
-    setInterval(showSlide, 4000);
-
-});
+    themeToggle.add
