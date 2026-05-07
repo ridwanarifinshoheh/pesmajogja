@@ -589,20 +589,63 @@ http://www.tooplate.com/view/2106-soft-landing
     font-size: 16px;
   }
 
-  .pricing-bottom {
-    position: relative;
-  }
+  /* ================= FIX PRICING LAYOUT ================= */
 
-  .pricing-bottom span {
-    font-size: 20px;
-  }
+.pricing-bottom{
+    display:flex !important;
+    justify-content:space-between !important;
+    align-items:center !important;
 
-  .pricing-btn {
-    position: absolute;
-    top: 15px;
-    right: 0;
-    display: inline-block;
-  }
+    gap:30px;
+    margin-top:30px;
+
+    flex-wrap:wrap;
+}
+
+/* TEXT */
+.pricing-text{
+    flex:1;
+    min-width:250px;
+
+    font-size:20px;
+    line-height:1.6;
+}
+
+/* BUTTON */
+.pricing-bottom .pricing-btn{
+    position:relative !important;
+    float:none !important;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:18px 40px;
+
+    border-radius:50px;
+
+    white-space:nowrap;
+
+    background:#2ecc71;
+    color:#fff;
+
+    text-decoration:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .pricing-bottom{
+        flex-direction:column;
+        align-items:flex-start !important;
+    }
+
+    .pricing-bottom .pricing-btn{
+        width:100%;
+        text-align:center;
+    }
+
+}
 
 
 
